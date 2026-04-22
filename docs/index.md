@@ -88,75 +88,67 @@ features:
 
 ## 学习路径
 
-<div class="learning-path">
+<div class="learning-path-container">
+  <img src="/learning-path.svg" alt="信奥学习路径" class="learning-path-image" />
+</div>
 
-### 🌱 入门阶段 (1-3个月)
-- C++ 基础语法
-- 简单算法：枚举、模拟、排序
-- 基础数据结构：数组、字符串
-- 目标：NOIP 普及组
-
-### 🌿 提高阶段 (3-6个月)
-- STL 标准库
-- 搜索算法：DFS、BFS
-- 基础动态规划
-- 常用数据结构：栈、队列、堆
-- 目标：NOIP 提高组
-
-### 🌳 进阶阶段 (6-12个月)
-- 高级动态规划
-- 图论算法
-- 字符串算法
-- 高级数据结构：线段树、树状数组
-- 目标：省选
-
-### 🏔️ 冲刺阶段 (12个月+)
-- 网络流
-- 平衡树
-- 可持久化数据结构
-- 数学进阶
-- 目标：NOI
-
+<div class="path-buttons">
+  <a href="/guide/introduction" class="path-button csp-j">CSP-J 入门</a>
+  <a href="/guide/introduction" class="path-button csp-s">CSP-S 提高</a>
+  <a href="/guide/introduction" class="path-button noip">NOIP 提高</a>
+  <a href="/guide/introduction" class="path-button provincial">省选冲刺</a>
 </div>
 
 <style>
-.learning-path {
-  margin-top: 2rem;
+.learning-path-container {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1rem;
 }
 
-.learning-path h3 {
+.learning-path-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.path-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
   margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
 }
 
-.learning-path ul {
-  margin-top: 0.5rem;
+.path-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.path-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.path-button.csp-j {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+}
+
+.path-button.csp-s {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+}
+
+.path-button.noip {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+}
+
+.path-button.provincial {
+  background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
 }
 </style>
-
-## 推荐资源
-
-- **芯程OJ** - 我们的在线评测平台：http://oj.nicecode.top
-- **洛谷** - 国内最大的 OI 在线评测平台
-- **Codeforces** - 国际知名算法竞赛平台
-- **AtCoder** - 日本算法竞赛平台
-- **LeetCode** - 面向求职的算法练习平台
-- **打字鸭** - 编程打字练习工具：https://www.daziya.com/
-
-## 贡献指南
-
-欢迎对本知识库做出贡献！你可以：
-
-- 提交问题和建议
-- 完善文档内容
-- 添加题解
-- 修复错误
-
-详见 [贡献指南](https://github.com/yourusername/oi-knowledge-base/blob/main/CONTRIBUTING.md)
-
----
-
-<div style="text-align: center; margin-top: 3rem; color: #666;">
-  <p>💡 提示：使用顶部搜索框快速查找内容</p>
-  <p>⭐ 如果这个项目对你有帮助，欢迎在 GitHub 上给我们一个 Star！</p>
-</div>
