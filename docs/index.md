@@ -88,67 +88,36 @@ features:
 
 ## 学习路径
 
-<div class="learning-path-container">
-  <img src="/learning-path.svg" alt="信奥学习路径" class="learning-path-image" />
-</div>
+<img src="/learning-path.svg" alt="信奥学习路径" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);" />
 
-<div class="path-buttons">
-  <a href="/guide/introduction" class="path-button csp-j">CSP-J 入门</a>
-  <a href="/guide/introduction" class="path-button csp-s">CSP-S 提高</a>
-  <a href="/guide/introduction" class="path-button noip">NOIP 提高</a>
-  <a href="/guide/introduction" class="path-button provincial">省选冲刺</a>
-</div>
+## 快速开始
 
-<style>
-.learning-path-container {
-  text-align: center;
-  margin: 2rem 0;
-  padding: 1rem;
-}
+### 1. 配置开发环境
 
-.learning-path-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
+[查看环境配置指南](/guide/environment)
 
-.path-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
-}
+### 2. 编写第一个程序
 
-.path-button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  color: white;
-}
+[编写 Hello World](/guide/first-program)
 
-.path-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
+### 3. 了解竞赛规则
 
-.path-button.csp-j {
-  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
-}
+[信奥竞赛介绍](/guide/introduction)
 
-.path-button.csp-s {
-  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
-}
+## 推荐资源
 
-.path-button.noip {
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-}
+### 在线评测平台
 
-.path-button.provincial {
-  background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
-}
-</style>
+- [洛谷](https://www.luogu.com.cn/) - 国内最大的OI社区
+- [Codeforces](https://codeforces.com/) - 国际知名竞赛平台
+- [AtCoder](https://atcoder.jp/) - 日本竞赛平台
+
+### 学习网站
+
+- [OI Wiki](https://oi-wiki.org/) - 开源的OI知识整合站点
+- [算法竞赛进阶指南](https://github.com/lydrainbowcat/tedukuri)
+
+### 书籍推荐
+
+- 《算法竞赛入门经典》- 刘汝佳
+- 《算法竞赛进阶指南》- 李煜东
