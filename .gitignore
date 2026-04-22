@@ -43,6 +43,6 @@ Thumbs.db
 .cache/
 
 # Package manager
-package-lock.json
+# package-lock.json  # 需要提交用于CI构建
 yarn.lock
 pnpm-lock.yaml
