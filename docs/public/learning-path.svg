@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4ade80;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#22c55e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f472b6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="800" height="400" fill="#f8fafc" rx="12"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="50" text-anchor="middle" font-size="28" font-weight="bold" fill="#1e293b">信奥竞赛学习路径</text>
+  
+  <!-- 箭头线 -->
+  <path d="M 150 200 L 250 200" stroke="#94a3b8" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 330 200 L 430 200" stroke="#94a3b8" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 510 200 L 610 200" stroke="#94a3b8" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- CSP-J 卡片 -->
+  <rect x="50" y="130" width="160" height="140" rx="16" fill="url(#grad1)" filter="url(#shadow)"/>
+  <text x="130" y="170" text-anchor="middle" font-size="20" font-weight="bold" fill="white">CSP-J</text>
+  <text x="130" y="195" text-anchor="middle" font-size="14" fill="white">入门级</text>
+  <text x="130" y="220" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.9)">3-6个月</text>
+  <text x="130" y="245" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.8)">C++基础 · 简单算法</text>
+  
+  <!-- CSP-S 卡片 -->
+  <rect x="250" y="130" width="160" height="140" rx="16" fill="url(#grad2)" filter="url(#shadow)"/>
+  <text x="330" y="170" text-anchor="middle" font-size="20" font-weight="bold" fill="white">CSP-S</text>
+  <text x="330" y="195" text-anchor="middle" font-size="14" fill="white">提高级</text>
+  <text x="330" y="220" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.9)">6-12个月</text>
+  <text x="330" y="245" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.8)">搜索 · DP · 图论</text>
+  
+  <!-- NOIP 卡片 -->
+  <rect x="450" y="130" width="160" height="140" rx="16" fill="url(#grad3)" filter="url(#shadow)"/>
+  <text x="530" y="170" text-anchor="middle" font-size="20" font-weight="bold" fill="white">NOIP</text>
+  <text x="530" y="195" text-anchor="middle" font-size="14" fill="white">提高组</text>
+  <text x="530" y="220" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.9)">6-12个月</text>
+  <text x="530" y="245" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.8)">高级算法 · 省选预备</text>
+  
+  <!-- 省选 卡片 -->
+  <rect x="650" y="130" width="140" height="140" rx="16" fill="url(#grad4)" filter="url(#shadow)"/>
+  <text x="720" y="170" text-anchor="middle" font-size="20" font-weight="bold" fill="white">省选</text>
+  <text x="720" y="195" text-anchor="middle" font-size="14" fill="white">冲刺</text>
+  <text x="720" y="220" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.9)">6-12个月</text>
+  <text x="720" y="245" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.8)">NOI · 金牌</text>
+  
+  <!-- 底部说明 -->
+  <text x="400" y="330" text-anchor="middle" font-size="14" fill="#64748b">从入门到省队，循序渐进，步步为营</text>
+</svg>
