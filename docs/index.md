@@ -75,65 +75,88 @@ features:
     details: 所有内容完全免费开放，助力每一位信奥学子
 ---
 
+<style>
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.dark {
+  --vp-home-hero-name-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+</style>
+
 ## 学习路径
 
-### 🌱 CSP-J入门阶段 (3-6个月)
-- C++ 基础语法：变量、条件、循环、函数
-- 基础数据结构：数组、字符串、STL入门
-- 简单算法：枚举、模拟、排序、二分查找
-- 目标：通过CSP-J第二轮，获得省二及以上
+<div class="learning-path">
 
-### 🌿 CSP-S提高阶段 (6-12个月)
-- 搜索算法：DFS、BFS、剪枝
-- 动态规划：背包、线性DP、区间DP
-- 图论基础：并查集、最短路、最小生成树
-- 数据结构：线段树、树状数组
-- 目标：通过CSP-S第二轮，获得省一，进入NOIP
+### 🌱 入门阶段 (1-3个月)
+- C++ 基础语法
+- 简单算法：枚举、模拟、排序
+- 基础数据结构：数组、字符串
+- 目标：NOIP 普及组
 
-### 🌳 NOIP提高阶段 (6-12个月)
-- 高级图论：网络流、强连通分量、拓扑排序
-- 高级DP：树形DP、状态压缩DP、斜率优化
-- 字符串算法：KMP、字符串哈希、Trie
-- 数学基础：数论、组合数学、快速幂
-- 目标：NOIP一等奖，获得省选资格
+### 🌿 提高阶段 (3-6个月)
+- STL 标准库
+- 搜索算法：DFS、BFS
+- 基础动态规划
+- 常用数据结构：栈、队列、堆
+- 目标：NOIP 提高组
 
-### 🏆 省选冲刺阶段 (6-12个月)
-- 高级数据结构：平衡树、LCT、可持久化数据结构
-- 计算几何：凸包、旋转卡壳、半平面交
-- 字符串高级：后缀数组、后缀自动机
-- 综合训练：真题模拟、难题突破
-- 目标：进入省队，参加NOI
+### 🌳 进阶阶段 (6-12个月)
+- 高级动态规划
+- 图论算法
+- 字符串算法
+- 高级数据结构：线段树、树状数组
+- 目标：省选
 
-[查看详细学习路径](/guide/introduction)
+### 🏔️ 冲刺阶段 (12个月+)
+- 网络流
+- 平衡树
+- 可持久化数据结构
+- 数学进阶
+- 目标：NOI
 
-## 快速开始
+</div>
 
-### 1. 配置开发环境
+<style>
+.learning-path {
+  margin-top: 2rem;
+}
 
-[查看环境配置指南](/guide/environment)
+.learning-path h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
 
-### 2. 编写第一个程序
-
-[编写 Hello World](/guide/first-program)
-
-### 3. 了解竞赛规则
-
-[信奥竞赛介绍](/guide/introduction)
+.learning-path ul {
+  margin-top: 0.5rem;
+}
+</style>
 
 ## 推荐资源
 
-### 在线评测平台
+- **芯程OJ** - 我们的在线评测平台：http://oj.nicecode.top
+- **洛谷** - 国内最大的 OI 在线评测平台
+- **Codeforces** - 国际知名算法竞赛平台
+- **AtCoder** - 日本算法竞赛平台
+- **LeetCode** - 面向求职的算法练习平台
+- **打字鸭** - 编程打字练习工具：https://www.daziya.com/
 
-- [洛谷](https://www.luogu.com.cn/) - 国内最大的OI社区
-- [Codeforces](https://codeforces.com/) - 国际知名竞赛平台
-- [AtCoder](https://atcoder.jp/) - 日本竞赛平台
+## 贡献指南
 
-### 学习网站
+欢迎对本知识库做出贡献！你可以：
 
-- [OI Wiki](https://oi-wiki.org/) - 开源的OI知识整合站点
-- [算法竞赛进阶指南](https://github.com/lydrainbowcat/tedukuri)
+- 提交问题和建议
+- 完善文档内容
+- 添加题解
+- 修复错误
 
-### 书籍推荐
+详见 [贡献指南](https://github.com/yourusername/oi-knowledge-base/blob/main/CONTRIBUTING.md)
 
-- 《算法竞赛入门经典》- 刘汝佳
-- 《算法竞赛进阶指南》- 李煜东
+---
+
+<div style="text-align: center; margin-top: 3rem; color: #666;">
+  <p>💡 提示：使用顶部搜索框快速查找内容</p>
+  <p>⭐ 如果这个项目对你有帮助，欢迎在 GitHub 上给我们一个 Star！</p>
+</div>
