@@ -105,3 +105,35 @@ features:
 - 目标：进入省队，参加NOI
 
 [查看详细学习路径](/guide/introduction)
+
+## 快速开始
+
+### 1. 配置开发环境
+
+[查看环境配置指南](/guide/environment)
+
+### 2. 编写第一个程序
+
+[编写 Hello World](/guide/first-program)
+
+### 3. 了解竞赛规则
+
+[信奥竞赛介绍](/guide/introduction)
+
+## 推荐资源
+
+### 在线评测平台
+
+- [洛谷](https://www.luogu.com.cn/) - 国内最大的OI社区
+- [Codeforces](https://codeforces.com/) - 国际知名竞赛平台
+- [AtCoder](https://atcoder.jp/) - 日本竞赛平台
+
+### 学习网站
+
+- [OI Wiki](https://oi-wiki.org/) - 开源的OI知识整合站点
+- [算法竞赛进阶指南](https://github.com/lydrainbowcat/tedukuri)
+
+### 书籍推荐
+
+- 《算法竞赛入门经典》- 刘汝佳
+- 《算法竞赛进阶指南》- 李煜东
