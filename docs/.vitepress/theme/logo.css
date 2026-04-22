@@ -1,0 +1,22 @@
+/* Logo 样式优化 */
+.VPNav .logo {
+  height: 32px;
+  width: auto;
+}
+
+.VPImage.logo {
+  height: 32px;
+  width: auto;
+}
+
+/* 首页 Hero Logo 样式 */
+.VPHero .image-bg,
+.VPHero .image-container {
+  max-width: 280px;
+  max-height: 280px;
+}
+
+.VPHero .VPImage {
+  width: 100%;
+  height: auto;
+}

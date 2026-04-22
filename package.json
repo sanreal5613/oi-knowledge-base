@@ -1,0 +1,24 @@
+{
+  "name": "oi-knowledge-base",
+  "version": "1.0.0",
+  "description": "面向信息学奥林匹克竞赛的综合知识库",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "keywords": [
+    "OI",
+    "算法",
+    "竞赛",
+    "信奥"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "markdown-it-mathjax3": "^4.3.2",
+    "vitepress": "^1.6.3",
+    "vue": "^3.5.13"
+  }
+}
