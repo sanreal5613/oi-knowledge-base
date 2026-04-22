@@ -35,7 +35,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/oi-knowledge-base.git
+git clone https://github.com/sanreal5613/oi-knowledge-base.git
 cd oi-knowledge-base
 
 # 安装依赖
@@ -120,99 +120,21 @@ npm run docs:preview
 
 ### 贡献内容
 
-- 📝 完善文档内容
+- 📝 补充新的知识点
 - 🐛 修复错误
-- ✨ 添加新功能
-- 📚 添加题解
-- 🎨 改进界面设计
-
-详见 [CONTRIBUTING.md](CONTRIBUTING.md)
-
-## 📝 文档编写规范
-
-### Markdown 格式
-
-```markdown
-# 标题
-
-## 二级标题
-
-### 三级标题
-
-- 列表项
-- 列表项
-
-**粗体** *斜体* `代码`
-
-\`\`\`cpp
-// 代码块
-#include <iostream>
-using namespace std;
-
-int main() {
-    cout << "Hello, OI!" << endl;
-    return 0;
-}
-\`\`\`
-```
-
-### 使用组件
-
-```vue
-<!-- 代码运行器 -->
-<CodeRunner :initialCode="`代码内容`" :showInput="true" />
-
-<!-- 难度徽章 -->
-<DifficultyBadge level="easy" />
-
-<!-- 算法卡片 -->
-<AlgorithmCard 
-  title="算法名称"
-  description="算法描述"
-  timeComplexity="O(n)"
-  spaceComplexity="O(1)"
-/>
-```
-
-## 🚀 部署
-
-### 服务器要求
-
-- Ubuntu 18.04+
-- Docker & Docker Compose
-- Node.js 16+
-- Nginx
-
-### 部署步骤
-
-详见 [DEPLOYMENT.md](DEPLOYMENT.md)
+- 💡 提供建议
+- 📖 完善文档
 
 ## 📄 许可证
 
-本项目采用 [MIT 许可证](LICENSE)
+本项目采用 [MIT](LICENSE) 许可证开源。
 
 ## 🙏 致谢
 
-- [VitePress](https://vitepress.dev/) - 强大的文档框架
-- [Judge0](https://judge0.com/) - 开源代码执行引擎
-- [Meilisearch](https://www.meilisearch.com/) - 快速搜索引擎
-- [OI Wiki](https://oi-wiki.org/) - 灵感来源
-
-## 📧 联系我们
-
-- 📮 邮箱: your-email@example.com
-- 💬 QQ 群: 123456789
-- 🐛 问题反馈: [GitHub Issues](https://github.com/yourusername/oi-knowledge-base/issues)
-
-## ⭐ Star History
-
-如果这个项目对你有帮助，欢迎给我们一个 Star！
-
-[![Star History Chart](https://api.star-history.com/svg?repos=yourusername/oi-knowledge-base&type=Date)](https://star-history.com/#yourusername/oi-knowledge-base&Date)
+感谢所有为本项目做出贡献的人！
 
 ---
 
-<div align="center">
-  <p>Made with ❤️ by OI Community</p>
-  <p>© 2026 信奥知识库</p>
-</div>
+<p align="center">
+  Made with ❤️ for OIers
+</p>
