@@ -75,17 +75,6 @@ features:
     details: 所有内容完全免费开放，助力每一位信奥学子
 ---
 
-<style>
-:root {
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.dark {
-  --vp-home-hero-name-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-</style>
-
 ## 学习路径
 
 ### 🌱 CSP-J入门阶段 (3-6个月)
