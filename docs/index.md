@@ -88,36 +88,75 @@ features:
 
 ## 学习路径
 
-<img src="/learning-path.svg" alt="信奥学习路径" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);" />
+<div class="learning-path">
 
-## 快速开始
+### 🌱 入门阶段 (1-3个月)
+- C++ 基础语法
+- 简单算法：枚举、模拟、排序
+- 基础数据结构：数组、字符串
+- 目标：NOIP 普及组
 
-### 1. 配置开发环境
+### 🌿 提高阶段 (3-6个月)
+- STL 标准库
+- 搜索算法：DFS、BFS
+- 基础动态规划
+- 常用数据结构：栈、队列、堆
+- 目标：NOIP 提高组
 
-[查看环境配置指南](/guide/environment)
+### 🌳 进阶阶段 (6-12个月)
+- 高级动态规划
+- 图论算法
+- 字符串算法
+- 高级数据结构：线段树、树状数组
+- 目标：省选
 
-### 2. 编写第一个程序
+### 🏔️ 冲刺阶段 (12个月+)
+- 网络流
+- 平衡树
+- 可持久化数据结构
+- 数学进阶
+- 目标：NOI
 
-[编写 Hello World](/guide/first-program)
+</div>
 
-### 3. 了解竞赛规则
+<style>
+.learning-path {
+  margin-top: 2rem;
+}
 
-[信奥竞赛介绍](/guide/introduction)
+.learning-path h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.learning-path ul {
+  margin-top: 0.5rem;
+}
+</style>
 
 ## 推荐资源
 
-### 在线评测平台
+- **芯程OJ** - 我们的在线评测平台：http://oj.nicecode.top
+- **洛谷** - 国内最大的 OI 在线评测平台
+- **Codeforces** - 国际知名算法竞赛平台
+- **AtCoder** - 日本算法竞赛平台
+- **LeetCode** - 面向求职的算法练习平台
+- **打字鸭** - 编程打字练习工具：https://www.daziya.com/
 
-- [洛谷](https://www.luogu.com.cn/) - 国内最大的OI社区
-- [Codeforces](https://codeforces.com/) - 国际知名竞赛平台
-- [AtCoder](https://atcoder.jp/) - 日本竞赛平台
+## 贡献指南
 
-### 学习网站
+欢迎对本知识库做出贡献！你可以：
 
-- [OI Wiki](https://oi-wiki.org/) - 开源的OI知识整合站点
-- [算法竞赛进阶指南](https://github.com/lydrainbowcat/tedukuri)
+- 提交问题和建议
+- 完善文档内容
+- 添加题解
+- 修复错误
 
-### 书籍推荐
+详见 [贡献指南](https://github.com/yourusername/oi-knowledge-base/blob/main/CONTRIBUTING.md)
 
-- 《算法竞赛入门经典》- 刘汝佳
-- 《算法竞赛进阶指南》- 李煜东
+---
+
+<div style="text-align: center; margin-top: 3rem; color: #666;">
+  <p>💡 提示：使用顶部搜索框快速查找内容</p>
+  <p>⭐ 如果这个项目对你有帮助，欢迎在 GitHub 上给我们一个 Star！</p>
+</div>
