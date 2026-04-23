@@ -29,22 +29,30 @@ jobs:
           echo "=== 开始构建 ==="
           npm run docs:build
           BUILD_EXIT_CODE=$?
-          echo "构建退出码: $BUILD_EXIT_CODE"
+          echo ""
+          echo "=== 构建完成，退出码: $BUILD_EXIT_CODE ==="
           echo "=== 检查 docs 目录 ==="
           ls -la docs/
+          echo ""
           echo "=== 检查 .vitepress 目录 ==="
-          ls -la docs/.vitepress/ || echo "目录不存在"
-          exit $BUILD_EXIT_CODE
-      
-      - name: Check build output
-        run: |
-          echo "=== 检查构建输出 ==="
-          ls -la docs/.vitepress/
+          ls -la docs/.vitepress/ 2>/dev/null || echo "目录不存在"
+          echo ""
           if [ -d "docs/.vitepress/dist" ]; then
             echo "✓ dist 目录存在"
             ls -la docs/.vitepress/dist/ | head -20
           else
-            echo "✗ dist 目录不存在，构建可能失败"
+            echo "✗ dist 目录不存在"
+          fi
+          exit $BUILD_EXIT_CODE
+      
+      - name: Check build output
+        run: |
+          echo "=== 再次检查构建输出 ==="
+          if [ -d "docs/.vitepress/dist" ]; then
+            echo "✓ dist 目录存在"
+            ls -la docs/.vitepress/dist/ | head -20
+          else
+            echo "✗ dist 目录不存在，构建失败"
             exit 1
           fi
       
