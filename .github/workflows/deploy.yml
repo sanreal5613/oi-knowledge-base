@@ -65,6 +65,9 @@ jobs:
             exit 1
           fi
       
+      - name: List package contents
+        run: tar -tzf dist.tar.gz | head -20
+      
       - name: Upload to server and extract
         uses: appleboy/ssh-action@master
         with:
