@@ -47,19 +47,18 @@ jobs:
       
       - name: Check build output
         run: |
-          echo "=== 再次检查构建输出 ==="
-          if [ -d "docs/.vitepress/dist" ]; then
-            echo "✓ dist 目录存在"
-            ls -la docs/.vitepress/dist/ | head -20
+          echo "=== 检查构建输出 ==="
+          if [ -d "docs/dist" ]; then
+            echo "✓ dist 目录存在 (docs/dist)"
+            ls -la docs/dist/ | head -20
           else
-            echo "✗ dist 目录不存在，构建失败"
+            echo "✗ dist 目录不存在"
             exit 1
           fi
       
       - name: Create deployment package
         run: |
-          ls -la docs/.vitepress/
-          tar -czf dist.tar.gz docs/.vitepress/dist
+          tar -czf dist.tar.gz docs/dist
       
       - name: Upload to server and extract
         uses: appleboy/ssh-action@master
@@ -94,7 +93,7 @@ jobs:
             # 解压新构建的文件
             tar -xzf dist.tar.gz
             rm -rf dist
-            mv docs/.vitepress/dist dist
+            mv docs/dist dist
             rm -rf docs
             rm -f dist.tar.gz
             # 重启 Nginx 容器
