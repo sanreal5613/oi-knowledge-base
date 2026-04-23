@@ -34,15 +34,11 @@ jobs:
           echo "=== 检查 docs 目录 ==="
           ls -la docs/
           echo ""
-          echo "=== 检查 .vitepress 目录 ==="
-          ls -la docs/.vitepress/ 2>/dev/null || echo "目录不存在"
+          echo "=== 检查 dist 目录 (outDir: ../dist) ==="
+          ls -la docs/dist/ 2>/dev/null || echo "docs/dist 不存在"
           echo ""
-          if [ -d "docs/.vitepress/dist" ]; then
-            echo "✓ dist 目录存在"
-            ls -la docs/.vitepress/dist/ | head -20
-          else
-            echo "✗ dist 目录不存在"
-          fi
+          echo "=== 查找所有 dist 目录 ==="
+          find . -name "dist" -type d 2>/dev/null | head -5
           exit $BUILD_EXIT_CODE
       
       - name: Check build output
