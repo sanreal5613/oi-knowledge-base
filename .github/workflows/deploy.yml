@@ -94,20 +94,11 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /var/www/oi-knowledge-base
+            # 备份旧版本
+            mv dist dist.backup.$(date +%Y%m%d_%H%M%S) 2>/dev/null || true
             # 解压新构建的文件
             tar -xzf dist.tar.gz
-            rm -rf dist
-            # 查找解压后的 dist 目录
-            if [ -d "docs/.vitepress/dist" ]; then
-              mv docs/.vitepress/dist dist
-              rm -rf docs
-            elif [ -d "dist" ]; then
-              # 已经是 dist 目录
-              :
-            else
-              echo "错误: 找不到 dist 目录"
-              exit 1
-            fi
+            # 清理
             rm -f dist.tar.gz
             # 重启 Nginx 容器
             docker-compose restart nginx
