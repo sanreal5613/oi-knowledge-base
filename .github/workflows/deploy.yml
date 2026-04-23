@@ -25,7 +25,9 @@ jobs:
         run: npm ci
       
       - name: Build
-        run: npm run docs:build
+        run: |
+          npm run docs:build 2>&1
+          echo "Build exit code: $?"
       
       - name: Check build output
         run: |
