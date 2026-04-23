@@ -27,13 +27,46 @@ jobs:
       - name: Build
         run: npm run docs:build
       
-      - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-avzr --delete"
-          SOURCE: "docs/.vitepress/dist/"
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_TARGET }}
-          EXCLUDE: "/dist/, /node_modules/"
+      - name: Create deployment package
+        run: |
+          tar -czf dist.tar.gz -C docs/.vitepress dist
+      
+      - name: Upload to server and extract
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/oi-knowledge-base
+            # 备份旧版本
+            mv dist dist.backup.$(date +%Y%m%d_%H%M%S) 2>/dev/null || true
+            # 等待文件传输完成
+            sleep 2
+      
+      - name: Deploy dist via SCP
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "dist.tar.gz"
+          target: "/var/www/oi-knowledge-base/"
+      
+      - name: Extract and restart
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/oi-knowledge-base
+            # 解压新构建的文件
+            tar -xzf dist.tar.gz
+            mv dist/.vitepress/dist dist.new
+            rm -rf dist
+            mv dist.new dist
+            rm -f dist.tar.gz
+            # 重启 Nginx 容器
+            docker-compose restart nginx
+            echo "Deployment completed successfully!"
