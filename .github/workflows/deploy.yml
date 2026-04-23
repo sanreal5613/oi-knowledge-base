@@ -26,8 +26,15 @@ jobs:
       
       - name: Build
         run: |
-          npm run docs:build 2>&1
-          echo "Build exit code: $?"
+          echo "=== 开始构建 ==="
+          npm run docs:build
+          BUILD_EXIT_CODE=$?
+          echo "构建退出码: $BUILD_EXIT_CODE"
+          echo "=== 检查 docs 目录 ==="
+          ls -la docs/
+          echo "=== 检查 .vitepress 目录 ==="
+          ls -la docs/.vitepress/ || echo "目录不存在"
+          exit $BUILD_EXIT_CODE
       
       - name: Check build output
         run: |
