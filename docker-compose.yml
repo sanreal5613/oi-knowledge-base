@@ -7,9 +7,7 @@ services:
     container_name: oi-nginx
     restart: always
     ports:
-      - "80:80"
-      - "443:443"
-      - "9000:80"  # 保留IP访问端口
+      - "9000:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
