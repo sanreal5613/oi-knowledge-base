@@ -1,65 +1,6 @@
 version: '3.8'
 
 services:
-  # Meilisearch 搜索引擎
-  meilisearch:
-    image: getmeili/meilisearch:v1.5
-    container_name: oi-meilisearch
-    restart: always
-    ports:
-      - "7700:7700"
-    environment:
-      - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
-      - MEILI_ENV=production
-    volumes:
-      - ./data/meili_data:/meili_data
-    networks:
-      - oi-network
-
-  # Judge0 代码执行引擎
-  judge0-server:
-    image: judge0/judge0:1.13.0
-    container_name: oi-judge0-server
-    restart: always
-    ports:
-      - "2358:2358"
-    privileged: true
-    environment:
-      - REDIS_HOST=judge0-redis
-      - POSTGRES_HOST=judge0-db
-      - POSTGRES_DB=judge0
-      - POSTGRES_USER=judge0
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-    depends_on:
-      - judge0-db
-      - judge0-redis
-    networks:
-      - oi-network
-
-  # Judge0 数据库
-  judge0-db:
-    image: postgres:13
-    container_name: oi-judge0-db
-    restart: always
-    environment:
-      - POSTGRES_DB=judge0
-      - POSTGRES_USER=judge0
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-    volumes:
-      - ./data/postgres_data:/var/lib/postgresql/data
-    networks:
-      - oi-network
-
-  # Judge0 Redis
-  judge0-redis:
-    image: redis:6
-    container_name: oi-judge0-redis
-    restart: always
-    volumes:
-      - ./data/redis_data:/data
-    networks:
-      - oi-network
-
   # Nginx 反向代理
   nginx:
     image: nginx:alpine
@@ -73,11 +14,67 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
       - ./dist:/usr/share/nginx/html:ro
       - ./nginx/ssl:/etc/nginx/ssl:ro
-    depends_on:
-      - meilisearch
-      - judge0-server
     networks:
       - oi-network
+
+  # Meilisearch 搜索引擎（可选，需要时启用）
+  # meilisearch:
+  #   image: getmeili/meilisearch:v1.5
+  #   container_name: oi-meilisearch
+  #   restart: always
+  #   ports:
+  #     - "7700:7700"
+  #   environment:
+  #     - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
+  #     - MEILI_ENV=production
+  #   volumes:
+  #     - ./data/meili_data:/meili_data
+  #   networks:
+  #     - oi-network
+
+  # Judge0 代码执行引擎（可选，需要时启用）
+  # judge0-server:
+  #   image: judge0/judge0:1.13.0
+  #   container_name: oi-judge0-server
+  #   restart: always
+  #   ports:
+  #     - "2358:2358"
+  #   privileged: true
+  #   environment:
+  #     - REDIS_HOST=judge0-redis
+  #     - POSTGRES_HOST=judge0-db
+  #     - POSTGRES_DB=judge0
+  #     - POSTGRES_USER=judge0
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  #   depends_on:
+  #     - judge0-db
+  #     - judge0-redis
+  #   networks:
+  #     - oi-network
+
+  # Judge0 数据库
+  # judge0-db:
+  #   image: postgres:13
+  #   container_name: oi-judge0-db
+  #   restart: always
+  #   environment:
+  #     - POSTGRES_DB=judge0
+  #     - POSTGRES_USER=judge0
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  #   volumes:
+  #     - ./data/postgres_data:/var/lib/postgresql/data
+  #   networks:
+  #     - oi-network
+
+  # Judge0 Redis
+  # judge0-redis:
+  #   image: redis:6
+  #   container_name: oi-judge0-redis
+  #   restart: always
+  #   volumes:
+  #     - ./data/redis_data:/data
+  #   networks:
+  #     - oi-network
 
 networks:
   oi-network:
