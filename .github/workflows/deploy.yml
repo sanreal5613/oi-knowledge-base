@@ -58,7 +58,8 @@ jobs:
         run: |
           DIST_PATH=${DIST_PATH:-docs/.vitepress/dist}
           if [ -d "$DIST_PATH" ]; then
-            tar -czf dist.tar.gz "$DIST_PATH"
+            # 打包 dist 目录和配置文件
+            tar -czf dist.tar.gz "$DIST_PATH" docker-compose.yml nginx/
           else
             echo "错误: dist 目录不存在"
             exit 1
