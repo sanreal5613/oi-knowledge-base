@@ -27,10 +27,22 @@ jobs:
       - name: Build
         run: npm run docs:build
       
+      - name: Check build output
+        run: |
+          echo "=== 检查构建输出 ==="
+          ls -la docs/.vitepress/
+          if [ -d "docs/.vitepress/dist" ]; then
+            echo "✓ dist 目录存在"
+            ls -la docs/.vitepress/dist/ | head -20
+          else
+            echo "✗ dist 目录不存在，构建可能失败"
+            exit 1
+          fi
+      
       - name: Create deployment package
         run: |
           ls -la docs/.vitepress/
-          tar -czf dist.tar.gz -C docs/.vitepress dist
+          tar -czf dist.tar.gz docs/.vitepress/dist
       
       - name: Upload to server and extract
         uses: appleboy/ssh-action@master
@@ -64,9 +76,9 @@ jobs:
             cd /var/www/oi-knowledge-base
             # 解压新构建的文件
             tar -xzf dist.tar.gz
-            mv dist/.vitepress/dist dist.new
             rm -rf dist
-            mv dist.new dist
+            mv docs/.vitepress/dist dist
+            rm -rf docs
             rm -f dist.tar.gz
             # 重启 Nginx 容器
             docker-compose restart nginx
