@@ -94,8 +94,12 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /var/www/oi-knowledge-base
-            # 备份旧版本
-            mv dist dist.backup.$(date +%Y%m%d_%H%M%S) 2>/dev/null || true
+            # 备份旧版本（保留最近3个）
+            if [ -d "dist" ]; then
+              mv dist dist.backup.$(date +%Y%m%d_%H%M%S)
+              # 只保留最近3个备份
+              ls -t dist.backup.* 2>/dev/null | tail -n +4 | xargs rm -rf 2>/dev/null || true
+            fi
             # 解压新构建的文件
             tar -xzf dist.tar.gz
             # 清理
@@ -103,3 +107,8 @@ jobs:
             # 重启 Nginx 容器
             docker-compose restart nginx
             echo "Deployment completed successfully!"
+            echo ""
+            echo "=== 部署信息 ==="
+            echo "时间: $(date)"
+            echo "备份列表:"
+            ls -ld dist.backup.* 2>/dev/null || echo "无备份"
