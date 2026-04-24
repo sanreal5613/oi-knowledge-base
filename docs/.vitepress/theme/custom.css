@@ -5,23 +5,178 @@
   --vp-c-brand-1: #42b883;
   --vp-c-brand-2: #35a372;
   --vp-c-brand-3: #299764;
-  
+
   /* 代码块背景 */
   --vp-code-block-bg: #f6f8fa;
-  
+
   /* 侧边栏宽度 */
   --vp-sidebar-width: 280px;
+
+  /* 平滑滚动 */
+  scroll-behavior: smooth;
 }
 
 .dark {
   --vp-code-block-bg: #1e1e1e;
 }
 
-/* 代码块样式优化 */
+/* ==================== 平滑滚动效果 ==================== */
+
+/* 全局平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 针对不支持 scroll-behavior 的浏览器 */
+@supports not (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* 锚点滚动偏移（避免被导航栏遮挡） */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* ==================== 侧边栏菜单高亮效果 ==================== */
+
+/* 侧边栏基础样式 */
+.VPSidebar {
+  padding-top: 20px;
+}
+
+/* 侧边栏菜单项过渡效果 */
+.VPSidebarItem {
+  transition: all 0.3s ease;
+}
+
+.VPSidebarItem.level-0 {
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+/* 当前激活的菜单项 - 增强高亮效果 */
+.VPSidebarItem.is-active > .item > .link {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+  background: linear-gradient(90deg, rgba(66, 184, 131, 0.1) 0%, transparent 100%);
+  border-left: 3px solid var(--vp-c-brand-1);
+  padding-left: 12px;
+  margin-left: -15px;
+  transition: all 0.3s ease;
+}
+
+/* 菜单项悬停效果 */
+.VPSidebarItem .link:hover {
+  color: var(--vp-c-brand-1);
+  background-color: rgba(66, 184, 131, 0.05);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+/* 侧边栏组标题 */
+.VPSidebarItem .item .text {
+  transition: color 0.3s ease;
+}
+
+.VPSidebarItem .item .text:hover {
+  color: var(--vp-c-brand-1);
+}
+
+/* ==================== 右侧目录大纲高亮效果 ==================== */
+
+/* 目录大纲容器 */
+.VPDocAsideOutline {
+  position: sticky;
+  top: 80px;
+}
+
+/* 目录大纲标题 */
+.VPDocAsideOutline .outline-title {
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  margin-bottom: 8px;
+}
+
+/* 目录大纲链接 */
+.VPDocAsideOutline .outline-link {
+  position: relative;
+  padding-left: 12px;
+  border-left: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+/* 目录大纲链接悬停效果 */
+.VPDocAsideOutline .outline-link:hover {
+  color: var(--vp-c-brand-1);
+  border-left-color: var(--vp-c-brand-2);
+  background: linear-gradient(90deg, rgba(66, 184, 131, 0.05) 0%, transparent 100%);
+}
+
+/* 当前激活的目录项 - 增强高亮 */
+.VPDocAsideOutline .outline-link.active {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+  border-left: 3px solid var(--vp-c-brand-1);
+  background: linear-gradient(90deg, rgba(66, 184, 131, 0.1) 0%, transparent 100%);
+  padding-left: 11px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 目录项层级缩进 */
+.VPDocAsideOutline .outline-link.depth-2 {
+  padding-left: 12px;
+}
+
+.VPDocAsideOutline .outline-link.depth-3 {
+  padding-left: 24px;
+}
+
+/* ==================== 导航栏优化 ==================== */
+
+.VPNav {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: background-color 0.3s ease;
+}
+
+.dark .VPNav {
+  background-color: rgba(30, 30, 30, 0.9);
+}
+
+/* 导航栏链接悬停效果 */
+.VPNavBarMenuLink {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.VPNavBarMenuLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--vp-c-brand-1);
+  transition: width 0.3s ease;
+}
+
+.VPNavBarMenuLink:hover::after {
+  width: 100%;
+}
+
+/* ==================== 代码块样式优化 ==================== */
+
 .vp-doc div[class*='language-'] {
   border-radius: 8px;
   margin: 16px 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.vp-doc div[class*='language-']:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .vp-doc div[class*='language-'] code {
@@ -36,33 +191,100 @@
   border-right: 1px solid rgba(128, 128, 128, 0.2);
 }
 
-/* 表格样式 */
+/* ==================== 文档内容宽度扩展 ==================== */
+
+/* 扩展内容区域宽度，让表格可以铺满 */
+.VPDoc .content {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+.VPDoc .content main {
+  max-width: none !important;
+  width: 100% !important;
+  padding-right: 0 !important;
+}
+
+.VPContent {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* 移除内容区域的右边距限制 */
+.VPDoc {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* 调整文档容器 */
+.VPDocContainer {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* ==================== 表格样式 ==================== */
+
+/* 表格容器 - 确保表格可以铺满 */
+.vp-doc .table-container,
 .vp-doc table {
-  display: block;
-  overflow-x: auto;
+  width: 100% !important;
+  max-width: 100% !important;
   border-collapse: collapse;
   margin: 20px 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+  table-layout: auto;
+  display: table;
+}
+
+.vp-doc table:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.vp-doc th,
+.vp-doc td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
 }
 
 .vp-doc th {
   background-color: var(--vp-c-brand-1);
   color: white;
   font-weight: 600;
-  padding: 12px 16px;
+}
+
+.vp-doc th:first-child {
+  border-radius: 8px 0 0 0;
+}
+
+.vp-doc th:last-child {
+  border-radius: 0 8px 0 0;
+}
+
+.vp-doc tr:last-child td:first-child {
+  border-radius: 0 0 0 8px;
+}
+
+.vp-doc tr:last-child td:last-child {
+  border-radius: 0 0 8px 0;
+}
+
+.vp-doc tr:last-child td {
+  border-bottom: none;
 }
 
 .vp-doc td {
-  padding: 10px 16px;
-  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease;
 }
 
-.vp-doc tr:hover {
+.vp-doc tr:hover td {
   background-color: rgba(66, 184, 131, 0.05);
 }
 
-/* 提示框样式 */
+/* ==================== 提示框样式 ==================== */
+
 .vp-doc .tip,
 .vp-doc .warning,
 .vp-doc .danger,
@@ -71,6 +293,15 @@
   padding: 16px;
   margin: 16px 0;
   border-left: 4px solid;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vp-doc .tip:hover,
+.vp-doc .warning:hover,
+.vp-doc .danger:hover,
+.vp-doc .info:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .vp-doc .tip {
@@ -93,34 +324,10 @@
   border-color: #2196f3;
 }
 
-/* 侧边栏优化 */
-.VPSidebar {
-  padding-top: 20px;
-}
+/* ==================== 首页特色卡片优化 ==================== */
 
-.VPSidebarItem.level-0 {
-  font-weight: 600;
-  margin-top: 12px;
-}
-
-.VPSidebarItem.is-active > .item > .link {
-  color: var(--vp-c-brand-1);
-  font-weight: 600;
-}
-
-/* 导航栏优化 */
-.VPNav {
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-.dark .VPNav {
-  background-color: rgba(30, 30, 30, 0.9);
-}
-
-/* 首页特色卡片优化 */
 .VPFeature {
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   padding: 24px;
@@ -135,29 +342,54 @@
 .VPFeature .icon {
   font-size: 32px;
   margin-bottom: 12px;
+  transition: transform 0.3s ease;
 }
 
-/* 代码复制按钮优化 */
+.VPFeature:hover .icon {
+  transform: scale(1.1);
+}
+
+/* ==================== 代码复制按钮优化 ==================== */
+
 .vp-code-group .tabs {
   border-radius: 8px 8px 0 0;
 }
 
-/* 搜索框优化 */
+/* 复制按钮 */
+.vp-doc .copy-code-button {
+  opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.vp-doc div[class*='language-']:hover .copy-code-button {
+  opacity: 1;
+}
+
+.vp-doc .copy-code-button:hover {
+  background-color: var(--vp-c-brand-1);
+  color: white;
+}
+
+/* ==================== 搜索框优化 ==================== */
+
 .VPNavBarSearch {
   padding: 0 24px;
 }
 
-/* 文档内容宽度 */
+/* ==================== 文档内容宽度 ==================== */
+
 .vp-doc {
-  max-width: 900px;
+  max-width: 100%;
 }
 
-/* 标题锚点 */
+/* ==================== 标题锚点优化 ==================== */
+
 .vp-doc h1,
 .vp-doc h2,
 .vp-doc h3,
 .vp-doc h4 {
   position: relative;
+  scroll-margin-top: 80px;
 }
 
 .vp-doc h1:hover .header-anchor,
@@ -167,27 +399,25 @@
   opacity: 1;
 }
 
-/* 响应式优化 */
-@media (max-width: 768px) {
-  .vp-doc {
-    padding: 16px;
-  }
-  
-  .vp-doc table {
-    font-size: 14px;
-  }
-  
-  .vp-doc th,
-  .vp-doc td {
-    padding: 8px 12px;
-  }
+.vp-doc .header-anchor {
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* 自定义容器 */
+/* 标题悬停效果 */
+.vp-doc h2:hover,
+.vp-doc h3:hover {
+  color: var(--vp-c-brand-1);
+  transition: color 0.3s ease;
+}
+
+/* ==================== 自定义容器 ==================== */
+
 .custom-block {
   border-radius: 8px;
   padding: 16px;
   margin: 16px 0;
+  transition: all 0.3s ease;
 }
 
 .custom-block.tip {
@@ -205,12 +435,18 @@
   border-left: 4px solid #f44336;
 }
 
-/* 代码运行器样式 */
+/* ==================== 代码运行器样式 ==================== */
+
 .code-runner {
   margin: 20px 0;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.code-runner:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .code-runner-header {
@@ -242,7 +478,8 @@
   overflow-y: auto;
 }
 
-/* 难度徽章 */
+/* ==================== 难度徽章 ==================== */
+
 .difficulty-badge {
   display: inline-block;
   padding: 4px 12px;
@@ -250,6 +487,11 @@
   font-size: 12px;
   font-weight: 600;
   margin-right: 8px;
+  transition: transform 0.2s ease;
+}
+
+.difficulty-badge:hover {
+  transform: scale(1.05);
 }
 
 .difficulty-easy {
@@ -267,18 +509,20 @@
   color: #f44336;
 }
 
-/* 算法卡片 */
+/* ==================== 算法卡片 ==================== */
+
 .algorithm-card {
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   padding: 20px;
   margin: 16px 0;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .algorithm-card:hover {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
+  border-color: var(--vp-c-brand-1);
 }
 
 .algorithm-card-title {
@@ -297,7 +541,8 @@
   color: #aaa;
 }
 
-/* 时间复杂度标签 */
+/* ==================== 时间复杂度标签 ==================== */
+
 .complexity {
   display: inline-block;
   background-color: rgba(33, 150, 243, 0.1);
@@ -307,4 +552,75 @@
   font-family: 'Consolas', monospace;
   font-size: 13px;
   margin: 4px 4px 4px 0;
+  transition: all 0.2s ease;
+}
+
+.complexity:hover {
+  background-color: rgba(33, 150, 243, 0.2);
+  transform: scale(1.05);
+}
+
+/* ==================== 响应式优化 ==================== */
+
+@media (max-width: 768px) {
+  .vp-doc {
+    padding: 16px;
+  }
+
+  .vp-doc table {
+    font-size: 14px;
+  }
+
+  .vp-doc th,
+  .vp-doc td {
+    padding: 8px 12px;
+  }
+
+  /* 移动端侧边栏优化 */
+  .VPSidebar {
+    transition: transform 0.3s ease;
+  }
+}
+
+/* ==================== 返回顶部按钮动画 ==================== */
+
+.VPBackToTop {
+  transition: all 0.3s ease;
+}
+
+.VPBackToTop:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(66, 184, 131, 0.3);
+}
+
+/* ==================== 分页导航优化 ==================== */
+
+.VPDocFooter .pager-link {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.VPDocFooter .pager-link:hover {
+  border-color: var(--vp-c-brand-1);
+  background-color: rgba(66, 184, 131, 0.05);
+}
+
+/* ==================== 编辑链接优化 ==================== */
+
+.VPEditLink .edit-link-button {
+  transition: color 0.3s ease;
+}
+
+.VPEditLink .edit-link-button:hover {
+  color: var(--vp-c-brand-1);
+}
+
+/* ==================== 最后更新时间优化 ==================== */
+
+.VPLastUpdated {
+  transition: opacity 0.3s ease;
+}
+
+.VPLastUpdated:hover {
+  opacity: 0.8;
 }

@@ -364,6 +364,16 @@ export default defineConfig({
   // 构建配置
   base: '/',
   outDir: '../dist',
+
+  // 平滑滚动配置
+  scrollOffset: 'header',
+
+  // Vite 配置
+  vite: {
+    css: {
+      devSourcemap: true
+    }
+  },
   
   // Head 配置
   head: [
