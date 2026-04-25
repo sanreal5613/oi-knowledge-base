@@ -1,4 +1,4 @@
----
+﻿---
 layout: home
 
 hero:
@@ -86,53 +86,7 @@ features:
 }
 </style>
 
-## 学习路径
-
-<div class="learning-path">
-
-### 🌱 入门阶段 (1-3个月)
-- C++ 基础语法
-- 简单算法：枚举、模拟、排序
-- 基础数据结构：数组、字符串
-- 目标：NOIP 普及组
-
-### 🌿 提高阶段 (3-6个月)
-- STL 标准库
-- 搜索算法：DFS、BFS
-- 基础动态规划
-- 常用数据结构：栈、队列、堆
-- 目标：NOIP 提高组
-
-### 🌳 进阶阶段 (6-12个月)
-- 高级动态规划
-- 图论算法
-- 字符串算法
-- 高级数据结构：线段树、树状数组
-- 目标：省选
-
-### 🏔️ 冲刺阶段 (12个月+)
-- 网络流
-- 平衡树
-- 可持久化数据结构
-- 数学进阶
-- 目标：NOI
-
-</div>
-
-<style>
-.learning-path {
-  margin-top: 2rem;
-}
-
-.learning-path h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.learning-path ul {
-  margin-top: 0.5rem;
-}
-</style>
+<OIRoadmap />
 
 ## 推荐资源
 
@@ -160,3 +114,5 @@ features:
   <p>💡 提示：使用顶部搜索框快速查找内容</p>
   <p>⭐ 如果这个项目对你有帮助，欢迎在 GitHub 上给我们一个 Star！</p>
 </div>
+
+

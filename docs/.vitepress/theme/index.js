@@ -4,6 +4,7 @@ import './logo.css'
 import CodeRunner from '../components/CodeRunner.vue'
 import DifficultyBadge from '../components/DifficultyBadge.vue'
 import AlgorithmCard from '../components/AlgorithmCard.vue'
+import OIRoadmap from '../components/OIRoadmap.vue'
 
 export default {
   extends: DefaultTheme,
@@ -12,6 +13,7 @@ export default {
     app.component('CodeRunner', CodeRunner)
     app.component('DifficultyBadge', DifficultyBadge)
     app.component('AlgorithmCard', AlgorithmCard)
+    app.component('OIRoadmap', OIRoadmap)
 
     // 平滑滚动处理
     if (typeof window !== 'undefined') {
